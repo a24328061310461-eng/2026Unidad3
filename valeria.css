@@ -16,15 +16,15 @@ body {
     border-color: #f9ee60;
 }
 .pokeimg {
-    width: 300px;
-    height: auto;
+    width: 205px;
+    height: 205px;
     position: absolute;
     top: 240px;
     left: 130px;
 }
 .pokeimg1 {
-    width: 400px;
-    height: 400px;
+    width: 250px;
+    height: 100px;
     position: absolute;
     top: 560px;
     left: 690px;
