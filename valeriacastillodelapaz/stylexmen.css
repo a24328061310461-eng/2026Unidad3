@@ -1,0 +1,17 @@
+:root{
+--color-de-fondo: #bacba9;   /* azul gris pastel */
+--color-de-lertras: #e1f4cb; /* azul oscuro suave */
+--color-barra: #717568;      /* azul pastel medio */
+--color-boton: #f1bf98;     /* rojo coral pastel */
+--color-extra: #3f4739;     /* rojo suave */
+}
+
+
+body{
+   background-color: #8fc093 ;
+}
+h1{
+   font-family: 'Bergell LET', sans-serif;
+   color: var();
+   text-align: center;
+}

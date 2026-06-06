@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="https://fonts.cdnfonts.com/css/lifestyle-marker-m54" rel="stylesheet">
+   <link href="https://fonts.cdnfonts.com/css/kun" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/sa-inkspot" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="valeria.css">
+    
+    <title>Pokédex</title>
+
+    <style>
+        :root{
+            --color-de-fondo: #bacba9;
+            --color-de-lertras: #e1f4cb;
+            --color-barra: #9bae8a;
+            --color-boton: #f1bf98;
+            --color-extra: #3f4739;
+        }
+
+        body {
+            background-color: #94e86d;
+        }
+        
+        .dropdown-menu a {
+            color: #333;
+            text-decoration: none;
+            display: block;
+            padding: 8px 16px;
+        }
+        .dropdown-menu a:hover {
+            background-color: #f1bf98;
+            color: #1a1a2e;
+        }
+        
+        .navbar {
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 30px;
+            color: #1a1a2e;
+            font-family: 'PROJECT SPACE', sans-serif;
+            font-size: 2rem;
+        }
+
+        .top-image {
+            display: block;
+            margin: 0 auto;
+            border-radius: 15px;
+        }
+
+        .search-area {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .search-input {
+            padding: 10px 20px;
+            border-radius: 25px;
+            border: 2px solid #ffde00;
+            width: 250px;
+            text-align: center;
+            font-size: 16px;
+            background: white;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #ff6600;
+        }
+
+        .search-btn {
+            padding: 10px 25px;
+            border-radius: 25px;
+            border: none;
+            background: #ff4444;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .search-btn:hover {
+            background: #cc0000;
+        }
+
+        .pokemon-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            margin: 30px auto;
+            max-width: 1200px;
+        }
+
+        .pokemon-image-area {
+            text-align: center;
+        }
+
+        .pokemon-image {
+            background: rgba(0,0,0,0.3);
+            border-radius: 20px;
+            padding: 20px;
+        }
+
+        .pokemon-data {
+            flex: 1;
+            min-width: 280px;
+            background: rgba(0,0,0,0.6);
+            border-radius: 15px;
+            padding: 20px;
+        }
+
+        .data-item {
+            background: rgba(255,255,255,0.1);
+            padding: 8px 12px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            border-left: 3px solid #ffde00;
+            color: white;
+            font-size: 14px;
+        }
+
+        .ids-container {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .id-badge {
+            background: #ffde00;
+            color: #1a1a2e;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .order-badge {
+            background: #ffaa00;
+            color: #1a1a2e;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .graph-container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            border: 2px solid #ffde00;
+        }
+
+        .graph-container canvas {
+            width: 100% !important;
+            height: auto !important;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+            .search-area {
+                flex-direction: column;
+                align-items: center;
+            }
+            .pokemon-container {
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div>
+    <nav class="navbar navbar-light" style="background-color:var(--color-barra);">
+        <div class="container">
+            <a class="navbar-brand" href="index.html" style="color:var(--color-de-lertras); font-family: 'Times New Roman', Times, serif">Inicio</a>
+
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="nav navbar-nav">
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Unidad 1
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink1">
+                            <a class="dropdown-item" href="mostrar.php">Primera Tabla</a><br>
+                            <a class="dropdown-item" href="meterdatos.php">Formulario</a><br>
+                            <a class="dropdown-item" href="tablafinal.php">Personajes</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Unidad 2
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
+                            <a class="dropdown-item" href="tarjetas.php">Equipos</a><br>
+                            <a class="dropdown-item" href="realciones02.html">Relaciones 2</a><br>
+                            <a class="dropdown-item" href="relaciones03.html">Relaciones 3</a>
+                            <a class="dropdown-item" href="capturadatosrelacionados.php">Relaciones de datos</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Unidad 3
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink3">
+                            <a class="dropdown-item" href="valeria.html">Pokédex</a><br>
+                            <a class="dropdown-item" href="peliculas.html">Películas</a><br>
+                            <a class="dropdown-item" href="nasa.html">NASA</a>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<h1>MAESTRO POKEMON: VALERIA CASTILLO DE LA PAZ</h1>
+
+<img src="./pokemon.jpg" width="400px" class="top-image">
+
+<div class="search-area">
+    <input type="text" placeholder="Pikachu" id="pokeName" name="pokeName" class="search-input">
+    <button onclick="fetchPokemon()" class="search-btn">Buscar</button>
+</div>
+
+<div class="pokemon-container">
+    <div class="pokemon-image-area">
+        <img src="./pokemaster.png" alt="PokeMaster" id="pokeImg" width="250px" class="pokemon-image">
+    </div>
+    
+    <div class="pokemon-data">
+        <div id="pokename" class="data-item">Name: --</div>
+        <div id="pokeHe" class="data-item">Height: --</div>
+        <div id="pokeWe" class="data-item">Weight: --</div>
+        <div id="poketype" class="data-item">Type: --</div>
+        <div id="pokeitem" class="data-item">Ability: --</div>
+        <div id="pokemove1" class="data-item">Move 1: --</div>
+        <div id="pokemove2" class="data-item">Move 2: --</div>
+        <div id="pokemove3" class="data-item">Move 3: --</div>
+        <div id="pokemove4" class="data-item">Move 4: --</div>
+        <div class="ids-container">
+            <span id="pokeid" class="id-badge">Id: --</span>
+            <span id="pokeorder" class="order-badge">Order: --</span>
+        </div>
+    </div>
+</div>
+
+<div class="graph-container">
+    <canvas id="miCanvas" width="400" height="300"></canvas>
+</div>
+
+<script src="Chart.js"></script>
+<script src="valeria.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        fetchPokemon();
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="https://fonts.cdnfonts.com/css/lifestyle-marker-m54" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/kun" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/sa-inkspot" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+    <title>Películas - Valeria Castillo</title>
+
+    <style>
+        :root{
+            --color-de-fondo: #bacba9;
+            --color-de-lertras: #e1f4cb;
+            --color-barra: #9bae8a;
+            --color-boton: #f1bf98;
+            --color-extra: #3f4739;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0a0a0a 100%);
+            font-family: 'Segoe UI', 'Poppins', 'Montserrat', sans-serif;
+            min-height: 100vh;
+        }
+
+        .dropdown-menu a {
+            color: #333;
+            text-decoration: none;
+            display: block;
+            padding: 8px 16px;
+        }
+        .dropdown-menu a:hover {
+            background-color: #f1bf98;
+            color: #1a1a2e;
+        }
+        
+        .navbar {
+            margin-bottom: 20px;
+        }
+
+        .hero-section {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #ffd700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-family: 'PROJECT SPACE', 'Impact', sans-serif;
+            text-shadow: 0 0 20px rgba(255,215,0,0.3);
+        }
+
+        .glow-text {
+            color: rgba(255,255,255,0.6);
+            font-size: 1rem;
+            letter-spacing: 3px;
+            margin-top: 10px;
+        }
+
+        .search-wrapper {
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .search-form {
+            display: flex;
+            gap: 15px;
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 60px;
+            padding: 5px;
+            border: 1px solid rgba(255,215,0,0.3);
+            transition: all 0.3s;
+        }
+
+        .search-form:focus-within {
+            border-color: #ffd700;
+            box-shadow: 0 0 25px rgba(255,215,0,0.3);
+            transform: scale(1.02);
+        }
+
+        .search-input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            padding: 15px 25px;
+            font-size: 16px;
+            color: white;
+            outline: none;
+        }
+
+        .search-input::placeholder {
+            color: rgba(255,255,255,0.5);
+        }
+
+        .search-btn {
+            background: linear-gradient(135deg, #ffd700, #ff8c00);
+            border: none;
+            padding: 10px 35px;
+            border-radius: 50px;
+            color: #0a0a0a;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .search-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255,215,0,0.5);
+        }
+
+        .movies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .movie-card {
+            background: linear-gradient(145deg, rgba(30,30,46,0.9), rgba(22,22,42,0.95));
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: 1px solid rgba(255,215,0,0.2);
+        }
+
+        .movie-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(255,215,0,0.6);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        .movie-poster {
+            position: relative;
+            height: 420px;
+            overflow: hidden;
+        }
+
+        .movie-poster img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .movie-card:hover .movie-poster img {
+            transform: scale(1.05);
+        }
+
+        .rating {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            backdrop-filter: blur(10px);
+        }
+
+        .rating.green { background: rgba(0,200,0,0.8); color: white; }
+        .rating.orange { background: rgba(255,165,0,0.8); color: white; }
+        .rating.red { background: rgba(255,0,0,0.8); color: white; }
+
+        .movie-info {
+            padding: 20px;
+        }
+
+        .movie-title {
+            color: #ffd700;
+            font-size: 1.1rem;
+            font-weight: bold;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .movie-date {
+            color: #888;
+            font-size: 0.8rem;
+            margin: 8px 0;
+        }
+
+        .movie-overview {
+            color: #ccc;
+            font-size: 0.8rem;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            max-width: 800px;
+            width: 90%;
+            background: linear-gradient(145deg, #1a1a2e, #0f0f1a);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255,215,0,0.3);
+        }
+
+        .modal-header {
+            padding: 20px;
+            background: rgba(0,0,0,0.6);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,215,0,0.3);
+        }
+
+        .modal-header h2 {
+            color: #ffd700;
+            margin: 0;
+        }
+
+        .close-modal {
+            font-size: 30px;
+            cursor: pointer;
+            color: white;
+        }
+
+        .close-modal:hover {
+            color: #ffd700;
+        }
+
+        .modal-body {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        .modal-poster {
+            flex: 0 0 200px;
+        }
+
+        .modal-poster img {
+            width: 100%;
+            border-radius: 15px;
+        }
+
+        .modal-details {
+            flex: 1;
+        }
+
+        .modal-details p {
+            color: #ddd;
+            margin: 10px 0;
+            line-height: 1.5;
+        }
+
+        .loading, .no-results {
+            text-align: center;
+            padding: 50px;
+            color: #ffd700;
+            font-size: 1.2rem;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #666;
+            border-top: 1px solid rgba(255,215,0,0.2);
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            .search-form {
+                flex-direction: column;
+                background: rgba(0,0,0,0.7);
+                border-radius: 30px;
+                padding: 15px;
+            }
+            .search-btn {
+                padding: 10px;
+            }
+            .movies-grid {
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+                gap: 20px;
+            }
+            .movie-poster {
+                height: 330px;
+            }
+            .modal-body {
+                flex-direction: column;
+                text-align: center;
+            }
+            .modal-poster {
+                flex: 0 0 auto;
+                max-width: 200px;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div>
+    <nav class="navbar navbar-light" style="background-color:var(--color-barra);">
+        <div class="container">
+            <a class="navbar-brand" href="index.html" style="color:var(--color-de-lertras); font-family: 'Times New Roman', Times, serif">Inicio</a>
+
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="nav navbar-nav">
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Unidad 1
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink1">
+                            <a class="dropdown-item" href="mostrar.php">Primera Tabla</a><br>
+                            <a class="dropdown-item" href="meterdatos.php">Formulario</a><br>
+                            <a class="dropdown-item" href="tablafinal.php">Personajes</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Unidad 2
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
+                            <a class="dropdown-item" href="tarjetas.php">Equipos</a><br>
+                            <a class="dropdown-item" href="realciones02.html">Relaciones 2</a><br>
+                            <a class="dropdown-item" href="relaciones03.html">Relaciones 3</a>
+                            <a class="dropdown-item" href="capturadatosrelacionados.php">Relaciones de datos</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Unidad 3
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink3">
+                            <a class="dropdown-item" href="valeria.html">Pokédex</a><br>
+                            <a class="dropdown-item" href="peliculas.html">Películas</a><br>
+                            <a class="dropdown-item" href="nasa.html">NASA</a>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<div class="hero-section">
+    <h1 class="hero-title">NIGHT CINEMA</h1>
+    <p class="glow-text">VALERIA CASTILLO</p>
+</div>
+
+<div class="search-wrapper">
+    <form id="form" class="search-form">
+        <input type="text" id="search" class="search-input" placeholder="SEARCH MOVIE...">
+        <button type="submit" class="search-btn">ENTER</button>
+    </form>
+</div>
+
+<div id="main" class="movies-grid">
+    <div class="loading">⚡ LOADING ⚡</div>
+</div>
+
+<div id="movieModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 id="modalTitle">DETALLES</h2>
+            <span class="close-modal">&times;</span>
+        </div>
+        <div class="modal-body" id="modalBody"></div>
+    </div>
+</div>
+
+<div class="footer">
+    <p>THE MOVIE DATABASE</p>
+</div>
+
+<script>
+    const API_KEY = '3fd2be6f0c70a2a598f084ddfb75487c';
+    const API_URL = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=' + API_KEY + '&page=1';
+    const IMG_PATH = 'https://image.tmdb.org/t/p/w500';
+    const SEARCH_API = 'https://api.themoviedb.org/3/search/movie?api_key=' + API_KEY + '&query=';
+
+    const main = document.getElementById('main');
+    const form = document.getElementById('form');
+    const search = document.getElementById('search');
+    const modal = document.getElementById('movieModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalBody = document.getElementById('modalBody');
+    const closeModal = document.querySelector('.close-modal');
+
+    closeModal.onclick = function() {
+        modal.classList.remove('active');
+    }
+
+    window.onclick = function(event) {
+        if (event.target === modal) {
+            modal.classList.remove('active');
+        }
+    }
+
+    async function getMovies(url) {
+        try {
+            main.innerHTML = '<div class="loading">⚡ LOADING ⚡</div>';
+            const res = await fetch(url);
+            const data = await res.json();
+            
+            if (data.results && data.results.length > 0) {
+                showMovies(data.results);
+            } else {
+                main.innerHTML = '<div class="no-results">NO MOVIES FOUND</div>';
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            main.innerHTML = '<div class="no-results">ERROR LOADING MOVIES</div>';
+        }
+    }
+
+    function getClassByRate(vote) {
+        if (vote >= 8) return 'green';
+        if (vote >= 5) return 'orange';
+        return 'red';
+    }
+
+    async function showMovieDetails(movieId) {
+        try {
+            const url = 'https://api.themoviedb.org/3/movie/' + movieId + '?api_key=' + API_KEY + '&language=es-ES';
+            const res = await fetch(url);
+            const movie = await res.json();
+
+            const posterUrl = movie.poster_path ? IMG_PATH + movie.poster_path : 'https://via.placeholder.com/300x450?text=NO+POSTER';
+            const genres = movie.genres ? movie.genres.map(function(g) { return g.name; }).join(', ') : 'No disponible';
+            const runtime = movie.runtime ? movie.runtime + ' min' : 'No disponible';
+            const releaseDate = movie.release_date ? movie.release_date : 'No disponible';
+            const voteAverage = movie.vote_average ? movie.vote_average.toFixed(1) : 'N/A';
+            const voteCount = movie.vote_count ? movie.vote_count : '0';
+
+            modalBody.innerHTML = 
+                '<div class="modal-poster">' +
+                    '<img src="' + posterUrl + '" alt="' + movie.title + '">' +
+                '</div>' +
+                '<div class="modal-details">' +
+                    '<p><strong>★ CALIFICACION:</strong> ' + voteAverage + ' / 10 (' + voteCount + ' votos)</p>' +
+                    '<p><strong>📅 FECHA:</strong> ' + releaseDate + '</p>' +
+                    '<p><strong>⏱️ DURACION:</strong> ' + runtime + '</p>' +
+                    '<p><strong>🎭 GENEROS:</strong> ' + genres + '</p>' +
+                    '<p><strong>📖 SINOPSIS:</strong></p>' +
+                    '<p>' + (movie.overview || 'No disponible') + '</p>' +
+                '</div>';
+            
+            modalTitle.innerHTML = movie.title || 'DETALLES';
+            modal.classList.add('active');
+        } catch (error) {
+            console.error('Error:', error);
+            modalBody.innerHTML = '<p style="color:white; text-align:center;">Error al cargar los detalles</p>';
+            modal.classList.add('active');
+        }
+    }
+
+    function showMovies(movies) {
+        main.innerHTML = '';
+        
+        for (var i = 0; i < movies.length; i++) {
+            var movie = movies[i];
+            var title = movie.title;
+            var poster_path = movie.poster_path;
+            var vote_average = movie.vote_average;
+            var overview = movie.overview;
+            var release_date = movie.release_date;
+            var id = movie.id;
+            
+            var posterUrl = poster_path ? IMG_PATH + poster_path : 'https://via.placeholder.com/500x750?text=NO+POSTER';
+            var year = release_date ? release_date.split('-')[0] : 'N/A';
+            var rating = vote_average ? vote_average.toFixed(1) : 'N/A';
+            
+            var movieEl = document.createElement('div');
+            movieEl.classList.add('movie-card');
+            movieEl.innerHTML = '<div class="movie-poster">' +
+                '<img src="' + posterUrl + '" alt="' + title + '" onerror="this.src=\'https://via.placeholder.com/500x750?text=NO+POSTER\'">' +
+                '<div class="rating ' + getClassByRate(vote_average) + '">' +
+                '★ ' + rating +
+                '</div>' +
+                '</div>' +
+                '<div class="movie-info">' +
+                '<div class="movie-title">' + (title || 'NO TITLE') + '</div>' +
+                '<div class="movie-date">' + year + '</div>' +
+                '<div class="movie-overview">' + (overview || 'No description available.') + '</div>' +
+                '</div>';
+            
+            (function(movieId) {
+                movieEl.addEventListener('click', function() {
+                    showMovieDetails(movieId);
+                });
+            })(id);
+            
+            main.appendChild(movieEl);
+        }
+    }
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var searchTerm = search.value.trim();
+        
+        if (searchTerm && searchTerm !== '') {
+            getMovies(SEARCH_API + encodeURIComponent(searchTerm));
+            search.value = '';
+        } else {
+            getMovies(API_URL);
+        }
+    });
+
+    getMovies(API_URL);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="https://fonts.cdnfonts.com/css/lifestyle-marker-m54" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/kun" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/sa-inkspot" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+    <title>NASA - Valeria Castillo</title>
+
+    <style>
+        :root{
+            --color-de-fondo: #bacba9;
+            --color-de-lertras: #e1f4cb;
+            --color-barra: #9bae8a;
+            --color-boton: #f1bf98;
+            --color-extra: #3f4739;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0a0a2e 0%, #0a0a1a 50%, #0a0a2e 100%);
+            font-family: 'Segoe UI', 'Poppins', 'Montserrat', sans-serif;
+            min-height: 100vh;
+        }
+
+        .dropdown-menu a {
+            color: #333;
+            text-decoration: none;
+            display: block;
+            padding: 8px 16px;
+        }
+        .dropdown-menu a:hover {
+            background-color: #f1bf98;
+            color: #1a1a2e;
+        }
+        
+        .navbar {
+            margin-bottom: 20px;
+        }
+
+        .hero-section {
+            text-align: center;
+            padding: 40px 20px 20px 20px;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffffff 0%, #0066ff 25%, #ffffff 50%, #00ccff 75%, #ffffff 100%);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: gradientShift 6s ease infinite;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-family: 'PROJECT SPACE', 'Impact', sans-serif;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .glow-text {
+            color: rgba(255,255,255,0.5);
+            font-size: 1rem;
+            letter-spacing: 3px;
+            margin-top: 10px;
+        }
+
+        .search-wrapper {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .search-form {
+            display: flex;
+            gap: 10px;
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            padding: 5px;
+            border: 1px solid rgba(0,100,255,0.3);
+        }
+
+        .search-input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            padding: 10px 15px;
+            font-size: 14px;
+            color: white;
+            outline: none;
+            text-align: center;
+        }
+
+        .search-btn {
+            background: linear-gradient(135deg, #0066ff, #00ccff);
+            border: none;
+            padding: 8px 20px;
+            border-radius: 40px;
+            color: white;
+            font-weight: bold;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .search-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .content-container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 25px;
+            background: linear-gradient(145deg, rgba(10,10,46,0.9), rgba(20,20,60,0.95));
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(0,100,255,0.3);
+        }
+
+        .nasa-title {
+            color: #0066ff;
+            font-size: 1.5rem;
+            text-align: center;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .nasa-date {
+            text-align: center;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 20px;
+            font-size: 0.85rem;
+        }
+
+        .media-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .nasa-image {
+            max-width: 80%;
+            max-height: 400px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            border: 1px solid rgba(0,100,255,0.3);
+        }
+
+        .video-frame {
+            width: 80%;
+            height: 400px;
+            border-radius: 15px;
+            border: 1px solid rgba(0,100,255,0.3);
+        }
+
+        .nasa-explanation {
+            color: rgba(255,255,255,0.8);
+            line-height: 1.6;
+            font-size: 0.9rem;
+            text-align: justify;
+            margin-top: 20px;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 50px;
+            font-size: 1.2rem;
+            color: #0066ff;
+            animation: pulse 1.5s ease infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+
+        .error-message {
+            text-align: center;
+            padding: 50px;
+            font-size: 1rem;
+            color: #ff6666;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 25px;
+            color: rgba(255,255,255,0.3);
+            border-top: 1px solid rgba(0,100,255,0.15);
+            margin-top: 40px;
+            font-size: 0.75rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            .search-form {
+                flex-direction: column;
+                background: rgba(0,0,0,0.7);
+                border-radius: 25px;
+                padding: 12px;
+            }
+            .search-btn {
+                padding: 8px;
+            }
+            .video-frame {
+                height: 220px;
+                width: 100%;
+            }
+            .nasa-image {
+                max-width: 100%;
+                max-height: 300px;
+            }
+            .content-container {
+                padding: 18px;
+            }
+            .nasa-title {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div>
+    <nav class="navbar navbar-light" style="background-color:var(--color-barra);">
+        <div class="container">
+            <a class="navbar-brand" href="index.html" style="color:var(--color-de-lertras); font-family: 'Times New Roman', Times, serif">Inicio</a>
+
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="nav navbar-nav">
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Unidad 1
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink1">
+                            <a class="dropdown-item" href="mostrar.php">Primera Tabla</a><br>
+                            <a class="dropdown-item" href="meterdatos.php">Formulario</a><br>
+                            <a class="dropdown-item" href="tablafinal.php">Personajes</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Unidad 2
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
+                            <a class="dropdown-item" href="tarjetas.php">Equipos</a><br>
+                            <a class="dropdown-item" href="realciones02.html">Relaciones 2</a><br>
+                            <a class="dropdown-item" href="relaciones03.html">Relaciones 3</a>
+                            <a class="dropdown-item" href="capturadatosrelacionados.php">Relaciones de datos</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Unidad 3
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink3">
+                            <a class="dropdown-item" href="valeria.html">Pokédex</a><br>
+                            <a class="dropdown-item" href="peliculas.html">Películas</a><br>
+                            <a class="dropdown-item" href="nasa.html">NASA</a>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<div class="hero-section">
+    <h1 class="hero-title">COSMIC EYE</h1>
+    <p class="glow-text">VALERIA CASTILLO</p>
+</div>
+
+<div class="search-wrapper">
+    <form id="form" class="search-form">
+        <input type="date" id="dateInput" class="search-input">
+        <button type="submit" class="search-btn">EXPLORAR</button>
+    </form>
+</div>
+
+<div id="content" class="content-container">
+    <div class="loading">🌀 CARGANDO 🌀</div>
+</div>
+
+<div class="footer">
+    <p>NASA API - Astronomy Picture of the Day</p>
+</div>
+
+<script>
+    const API_KEY = 'DEMO_KEY';
+    const BASE_URL = 'https://api.nasa.gov/planetary/apod';
+
+    const content = document.getElementById('content');
+    const form = document.getElementById('form');
+    const dateInput = document.getElementById('dateInput');
+
+    const today = new Date();
+    const formattedToday = today.toISOString().split('T')[0];
+    dateInput.value = formattedToday;
+
+    const traducciones = {
+        'loading': 'Cargando imagen del dia',
+        'error_connect': 'Error al conectar con la API',
+        'error_no_data': 'No se pudo cargar la imagen',
+        'title_prefix': 'Titulo',
+        'date_prefix': 'Fecha',
+        'description_prefix': 'Descripcion',
+        'video': 'Video'
+    };
+
+    async function getPictureOfTheDay(date) {
+        try {
+            let url = BASE_URL + '?api_key=' + API_KEY;
+            if (date) {
+                url += '&date=' + date;
+            }
+            
+            content.innerHTML = '<div class="loading">🌀 ' + traducciones.loading + ' 🌀</div>';
+            
+            const res = await fetch(url);
+            
+            if (!res.ok) {
+                content.innerHTML = '<div class="error-message">❌ ' + traducciones.error_connect + ' (' + res.status + ')</div>';
+                return;
+            }
+            
+            const data = await res.json();
+            
+            if (data.error) {
+                content.innerHTML = '<div class="error-message">❌ ' + traducciones.error_connect + '</div>';
+                return;
+            }
+            
+            if (data && data.title) {
+                showContent(data);
+            } else {
+                content.innerHTML = '<div class="error-message">❌ ' + traducciones.error_no_data + '</div>';
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            content.innerHTML = '<div class="error-message">❌ ' + traducciones.error_connect + '</div>';
+        }
+    }
+
+    function traducirTexto(texto) {
+        let textoTraducido = texto;
+        
+        const traduccionesTexto = {
+            'Galaxy': 'Galaxia',
+            'Galaxies': 'Galaxias',
+            'Star': 'Estrella',
+            'Stars': 'Estrellas',
+            'Planet': 'Planeta',
+            'Planets': 'Planetas',
+            'Moon': 'Luna',
+            'Moons': 'Lunas',
+            'Sun': 'Sol',
+            'Earth': 'Tierra',
+            'Space': 'Espacio',
+            'Nebula': 'Nebulosa',
+            'Nebulae': 'Nebulosas',
+            'Cluster': 'Cumulo',
+            'Clusters': 'Cumulos',
+            'Comet': 'Cometa',
+            'Comets': 'Cometas',
+            'Asteroid': 'Asteroide',
+            'Asteroids': 'Asteroides',
+            'Orbit': 'Orbita',
+            'Orbiting': 'Orbitando',
+            'Telescope': 'Telescopio',
+            'Astronaut': 'Astronauta',
+            'Astronauts': 'Astronautas',
+            'Rocket': 'Cohete',
+            'Launch': 'Lanzamiento',
+            'Mission': 'Mision',
+            'Solar System': 'Sistema Solar',
+            'Milky Way': 'Via Lactea',
+            'Black Hole': 'Agujero Negro',
+            'Black Holes': 'Agujeros Negros',
+            'Supernova': 'Supernova',
+            'constellation': 'constelacion',
+            'constellations': 'constelaciones'
+        };
+        
+        for (let ingles in traduccionesTexto) {
+            let espanol = traduccionesTexto[ingles];
+            let regex = new RegExp('\\b' + ingles + '\\b', 'gi');
+            textoTraducido = textoTraducido.replace(regex, espanol);
+        }
+        
+        return textoTraducido;
+    }
+
+    function showContent(data) {
+        const title = data.title || 'Sin titulo';
+        const date = data.date || 'Fecha no disponible';
+        let explanation = data.explanation || 'Sin descripcion disponible';
+        const mediaType = data.media_type || 'image';
+        const url = data.url || '';
+        const hdurl = data.hdurl || url;
+        
+        explanation = traducirTexto(explanation);
+        
+        let mediaHtml = '';
+        
+        if (mediaType === 'video') {
+            mediaHtml = '<iframe class="video-frame" src="' + url + '" frameborder="0" allowfullscreen></iframe>';
+        } else {
+            mediaHtml = '<img src="' + hdurl + '" alt="' + title + '" class="nasa-image" onerror="this.src=\'' + url + '\'">';
+        }
+        
+        content.innerHTML = 
+            '<div class="nasa-title">' + title + '</div>' +
+            '<div class="nasa-date">📅 ' + date + '</div>' +
+            '<div class="media-container">' + mediaHtml + '</div>' +
+            '<div class="nasa-explanation">' + explanation + '</div>';
+    }
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const selectedDate = dateInput.value;
+        
+        if (selectedDate && selectedDate !== '') {
+            getPictureOfTheDay(selectedDate);
+        } else {
+            getPictureOfTheDay(formattedToday);
+        }
+    });
+
+    getPictureOfTheDay(formattedToday);
+</script>
+
+</body>
+</html>
