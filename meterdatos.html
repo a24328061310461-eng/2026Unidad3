@@ -24,12 +24,10 @@
             --color-extra: #3f4739;
         }
 
-        body{
-            background-color: #8fc093;
-        }
-        h1{
-            font-family: 'Bergell LET', sans-serif;
-            text-align: center;
+        body {
+            background: linear-gradient(135deg, #8fc093 0%, #6a9c6e 100%);
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
         }
         
         .dropdown-menu a {
@@ -42,9 +40,71 @@
             background-color: #f1bf98;
             color: #1a1a2e;
         }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        form {
+            width: 50%;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: rgba(0, 0, 0, 0.75);
+            border-radius: 10px;
+            margin-bottom: 50px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: white;
+        }
+
+        input[type="text"], input[type="date"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid var(--color-boton);
+            border-radius: 5px;
+            background-color: #1f1f1f;
+            color: white;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            height: 80px;
+            resize: vertical;
+        }
+
+        input[type="submit"] {
+            background-color: var(--color-boton);
+            color: #000;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #e0a878;
+        }
+
+        .alert-info {
+            background-color: #17a2b8;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
     </style>
 </head>
-
 <body>
 
 <div>
@@ -95,15 +155,42 @@
     </nav>
 </div>
 
-<div class="jumbotron" style="background-color: var(--color-de-fondo)">
-    <h1 class="display-4">Bienvenido</h1>
-    <p class="lead">Esta será mi página.</p>
-    <hr class="my-4">
-    <p>Bienvenido a mi página</p>
-    <p class="lead">
-        <a class="btn btn-primary btn-lg" href="#" role="button">Botón</a>
-    </p>
+<h1>Registro de Personajes</h1>
+
+<div class="alert-info" style="width: 50%; margin: 0 auto;">
+    Formulario de registro de personajes
 </div>
+
+<form method="post" action="#">
+    <label for="nombrereal">Nombre Real:</label>
+    <input type="text" name="nombrereal" id="nombrereal" required>
+
+    <label for="personaje">Nombre del Personaje:</label>
+    <input type="text" name="personaje" id="personaje" required>
+
+    <label for="altura">Altura:</label>
+    <input type="text" name="altura" id="altura" placeholder="Ej: 1.75 m">
+
+    <label for="peso">Peso:</label>
+    <input type="text" name="peso" id="peso" placeholder="Ej: 70 kg">
+
+    <label for="poderes">Poderes:</label>
+    <input type="text" name="poderes" id="poderes">
+
+    <label for="sexo">Sexo:</label>
+    <input type="text" name="sexo" id="sexo">
+
+    <label for="debilidad">Debilidad:</label>
+    <input type="text" name="debilidad" id="debilidad">
+
+    <label for="creation">Fecha de Creación:</label>
+    <input type="date" name="creation" id="creation">
+
+    <label for="biografia">Biografía:</label>
+    <textarea name="biografia" id="biografia"></textarea>
+
+    <input type="submit" value="Guardar Datos">
+</form>
 
 </body>
 </html>

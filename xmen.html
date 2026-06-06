@@ -24,12 +24,10 @@
             --color-extra: #3f4739;
         }
 
-        body{
-            background-color: #8fc093;
-        }
-        h1{
-            font-family: 'Bergell LET', sans-serif;
-            text-align: center;
+        body {
+            background: linear-gradient(135deg, #8fc093 0%, #6a9c6e 100%);
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
         }
         
         .dropdown-menu a {
@@ -41,6 +39,56 @@
         .dropdown-menu a:hover {
             background-color: #f1bf98;
             color: #1a1a2e;
+        }
+
+        .container {
+            width: 50%;
+            margin: 0 auto;
+            background: rgba(0,0,0,0.7);
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 30px;
+            margin-bottom: 50px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: white;
+        }
+
+        input[type="text"], textarea, input[type="file"] {
+            width: 100%;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid var(--color-boton);
+            background: #1f1f1f;
+            color: white;
+        }
+
+        textarea {
+            height: 80px;
+            resize: vertical;
+        }
+
+        .btn {
+            background-color: var(--color-boton);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-top: 30px;
         }
     </style>
 </head>
@@ -95,14 +143,49 @@
     </nav>
 </div>
 
-<div class="jumbotron" style="background-color: var(--color-de-fondo)">
-    <h1 class="display-4">Bienvenido</h1>
-    <p class="lead">Esta será mi página.</p>
-    <hr class="my-4">
-    <p>Bienvenido a mi página</p>
-    <p class="lead">
-        <a class="btn btn-primary btn-lg" href="#" role="button">Botón</a>
-    </p>
+<h1>Registro de Mutantes</h1>
+
+<div class="container">
+    <form action="#" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="nombre">Personaje de Serie:</label>
+            <input type="text" name="nombre" id="nombre" placeholder="Ej. Daenerys Targaryen" required>
+        </div>
+
+        <div class="form-group">
+            <label for="nombrereal">Nombre de la Actriz:</label>
+            <input type="text" name="nombrereal" id="nombrereal" placeholder="Ej. Emilia Clarke" required>
+        </div>
+
+        <div class="form-group">
+            <label for="poderes">Habilidad Destacada:</label>
+            <input type="text" name="poderes" id="poderes" placeholder="Ej. Estrategia, Liderazgo" required>
+        </div>
+
+        <div class="form-group">
+            <label for="altura">Altura:</label>
+            <input type="text" name="altura" id="altura" placeholder="Ej. 1.75 m" required>
+        </div>
+
+        <div class="form-group">
+            <label for="ocupacion">Ocupación:</label>
+            <input type="text" name="ocupacion" id="ocupacion" placeholder="Ej. Reina / Espía" required>
+        </div>
+
+        <div class="form-group">
+            <label for="bio">Biografía:</label>
+            <textarea name="bio" id="bio" placeholder="Escribe la historia del personaje..."></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="imagen">Foto del Personaje:</label>
+            <input type="file" name="imagen" id="imagen" accept="image/*" required>
+        </div>
+
+        <div style="text-align: center;">
+            <button type="submit" class="btn">Guardar Personaje</button>
+        </div>
+    </form>
 </div>
 
 </body>

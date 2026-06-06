@@ -17,7 +17,7 @@
 
     <style>
         :root{
-            --color-de-fondo: #bacba9;
+            --color-de-fondo: #a55690;
             --color-de-lertras: #e1f4cb;
             --color-barra: #9bae8a;
             --color-boton: #f1bf98;
@@ -26,9 +26,11 @@
 
         body{
             background-color: #8fc093;
-        }
-        h1{
-            font-family: 'Bergell LET', sans-serif;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(135deg, #8fc093 0%, #6a9c6e 100%);
+            color: white;
             text-align: center;
         }
         
@@ -42,9 +44,71 @@
             background-color: #f1bf98;
             color: #1a1a2e;
         }
+
+        h1{
+            margin-top: 30px;
+            font-size: 40px;
+            text-shadow: 2px 2px 5px black;
+            color: #2c3e50;
+        }
+
+        h2{
+            font-size: 22px;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 3px black;
+            color: #2c3e50;
+        }
+
+        .table-container {
+            width: 95%;
+            margin: 20px auto;
+            overflow-x: auto;
+        }
+
+        table{
+            margin: auto;
+            border-collapse: collapse;
+            width: 100%;
+            background-color: rgba(0,0,0,0.85);
+            backdrop-filter: blur(5px);
+            box-shadow: 0px 0px 15px black;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th{
+            background-color: var(--color-barra);
+            padding: 12px;
+            color: white;
+            font-weight: bold;
+        }
+
+        td{
+            padding: 10px;
+            color: #ddd;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        tr:nth-child(even){
+            background-color: rgba(255,255,255,0.05);
+        }
+
+        tr:hover{
+            background-color: rgba(255,255,255,0.15);
+            transition: 0.3s;
+        }
+
+        .badge-count {
+            background-color: var(--color-boton);
+            color: #2c3e50;
+            padding: 8px 16px;
+            border-radius: 20px;
+            display: inline-block;
+            margin: 10px auto;
+            font-weight: bold;
+        }
     </style>
 </head>
-
 <body>
 
 <div>
@@ -95,14 +159,66 @@
     </nav>
 </div>
 
-<div class="jumbotron" style="background-color: var(--color-de-fondo)">
-    <h1 class="display-4">Bienvenido</h1>
-    <p class="lead">Esta será mi página.</p>
-    <hr class="my-4">
-    <p>Bienvenido a mi página</p>
-    <p class="lead">
-        <a class="btn btn-primary btn-lg" href="#" role="button">Botón</a>
-    </p>
+<div class="table-container">
+    <h1>CINE</h1>
+    <h2>Películas y sus Relaciones</h2>
+
+    <div style="text-align: center;"><span class="badge-count">Total: 5 películas</span></div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Titulo</th>
+                <th>Año</th>
+                <th>Director</th>
+                <th>Actores</th>
+                <th>Personajes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Iron Man</td>
+                <td>2008</td>
+                <td>Jon Favreau</td>
+                <td>Robert Downey Jr., Gwyneth Paltrow</td>
+                <td>Tony Stark, Pepper Potts</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>The Avengers</td>
+                <td>2012</td>
+                <td>Joss Whedon</td>
+                <td>Robert Downey Jr., Chris Evans, Scarlett Johansson</td>
+                <td>Iron Man, Capitán América, Black Widow</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Black Panther</td>
+                <td>2018</td>
+                <td>Ryan Coogler</td>
+                <td>Chadwick Boseman, Michael B. Jordan</td>
+                <td>TChalla, Killmonger</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Spider-Man: No Way Home</td>
+                <td>2021</td>
+                <td>Jon Watts</td>
+                <td>Tom Holland, Zendaya, Benedict Cumberbatch</td>
+                <td>Spider-Man, MJ, Doctor Strange</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Guardians of the Galaxy</td>
+                <td>2014</td>
+                <td>James Gunn</td>
+                <td>Chris Pratt, Zoe Saldana</td>
+                <td>Star-Lord, Gamora</td>
+            </tr>
+        </tbody>
+    </table>
 </div>
 
 </body>

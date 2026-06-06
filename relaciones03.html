@@ -17,7 +17,7 @@
 
     <style>
         :root{
-            --color-de-fondo: #bacba9;
+            --color-de-fondo: #a55690;
             --color-de-lertras: #e1f4cb;
             --color-barra: #9bae8a;
             --color-boton: #f1bf98;
@@ -26,9 +26,11 @@
 
         body{
             background-color: #8fc093;
-        }
-        h1{
-            font-family: 'Bergell LET', sans-serif;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(135deg, #8fc093 0%, #6a9c6e 100%);
+            color: white;
             text-align: center;
         }
         
@@ -42,9 +44,71 @@
             background-color: #f1bf98;
             color: #1a1a2e;
         }
+
+        h1{
+            margin-top: 30px;
+            font-size: 40px;
+            text-shadow: 2px 2px 5px black;
+            color: #2c3e50;
+        }
+
+        h2{
+            font-size: 22px;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 3px black;
+            color: #2c3e50;
+        }
+
+        .table-container {
+            width: 80%;
+            margin: 20px auto;
+            overflow-x: auto;
+        }
+
+        table{
+            margin: auto;
+            border-collapse: collapse;
+            width: 100%;
+            background-color: rgba(0,0,0,0.85);
+            backdrop-filter: blur(5px);
+            box-shadow: 0px 0px 15px black;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th{
+            background-color: var(--color-barra);
+            padding: 12px;
+            color: white;
+            font-weight: bold;
+        }
+
+        td{
+            padding: 10px;
+            color: #ddd;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        tr:nth-child(even){
+            background-color: rgba(255,255,255,0.05);
+        }
+
+        tr:hover{
+            background-color: rgba(255,255,255,0.15);
+            transition: 0.3s;
+        }
+
+        .badge-count {
+            background-color: var(--color-boton);
+            color: #2c3e50;
+            padding: 8px 16px;
+            border-radius: 20px;
+            display: inline-block;
+            margin: 10px auto;
+            font-weight: bold;
+        }
     </style>
 </head>
-
 <body>
 
 <div>
@@ -95,14 +159,67 @@
     </nav>
 </div>
 
-<div class="jumbotron" style="background-color: var(--color-de-fondo)">
-    <h1 class="display-4">Bienvenido</h1>
-    <p class="lead">Esta será mi página.</p>
-    <hr class="my-4">
-    <p>Bienvenido a mi página</p>
-    <p class="lead">
-        <a class="btn btn-primary btn-lg" href="#" role="button">Botón</a>
-    </p>
+<div class="table-container">
+    <h1>Relaciones entre Tablas</h1>
+    <h2>Sistema de Información Relacional</h2>
+
+    <div style="text-align: center;"><span class="badge-count">Total: 6 relaciones</span></div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID Relación</th>
+                <th>Tabla Origen</th>
+                <th>Tabla Destino</th>
+                <th>Tipo de Relación</th>
+                <th>Descripción</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Personajes</td>
+                <td>Comics</td>
+                <td>Muchos a Muchos</td>
+                <td>Un personaje puede aparecer en múltiples comics</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Personajes</td>
+                <td>Superpoderes</td>
+                <td>Muchos a Muchos</td>
+                <td>Un personaje puede tener múltiples superpoderes</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Peliculas</td>
+                <td>Actores</td>
+                <td>Muchos a Muchos</td>
+                <td>Una película tiene múltiples actores</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Peliculas</td>
+                <td>Directores</td>
+                <td>Uno a Muchos</td>
+                <td>Un director puede dirigir múltiples películas</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Insectos</td>
+                <td>Familias</td>
+                <td>Uno a Muchos</td>
+                <td>Una familia contiene múltiples insectos</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Insectos</td>
+                <td>Habitats</td>
+                <td>Uno a Muchos</td>
+                <td>Un hábitat puede albergar múltiples insectos</td>
+            </tr>
+        </tbody>
+    </table>
 </div>
 
 </body>

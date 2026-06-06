@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.cdnfonts.com/css/lifestyle-marker-m54" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/kun" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/sa-inkspot" rel="stylesheet">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+<title>Valeria Castillo de la Paz</title>
+
+<style>
+    :root {
+        --color-de-fondo: #bacba9;
+        --color-de-letras: #e1f4cb;
+        --color-barra: #717568;
+        --color-boton: #f1bf98;
+        --color-extra: #3f4739;
+    }
+    
+    body {
+        background-color: #8fc093;
+        font-family: Arial, sans-serif;
+    }
+    
+    h1 {
+        font-family: 'Bergell LET', sans-serif;
+        text-align: center;
+        color: #2c3e50;
+        margin-top: 30px;
+    }
+    
+    h2 {
+        font-family: 'Kun', sans-serif;
+        color: #2c3e50;
+        margin-top: 30px;
+        margin-bottom: 20px;
+        padding-left: 15px;
+        border-left: 5px solid var(--color-boton);
+    }
+    
+    h3 {
+        font-family: 'Kun', sans-serif;
+        color: #3f4739;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 30px;
+        background-color: white;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    th, td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: left;
+    }
+    
+    th {
+        background-color: var(--color-barra);
+        color: var(--color-de-letras);
+        font-weight: bold;
+    }
+    
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    
+    tr:hover {
+        background-color: #f5f5f5;
+    }
+    
+    .container-tablas {
+        width: 95%;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    
+    .badge {
+        background-color: var(--color-boton);
+        color: #2c3e50;
+        padding: 5px 10px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: bold;
+    }
+    
+    footer {
+        background-color: var(--color-extra);
+        color: white;
+        text-align: center;
+        padding: 15px;
+        margin-top: 40px;
+        border-radius: 5px;
+    }
+    
+    .alert-success {
+        background-color: #d4edda;
+        color: #155724;
+        padding: 10px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+</style>
+
+</head>
+<body>
+
+<div>
+    <nav class="navbar navbar-light" style="background-color:var(--color-barra);">
+        <div class="container">
+            <a class="navbar-brand" href="index.html" style="color:var(--color-de-letras); font-family: 'Times New Roman', Times, serif">Inicio</a>
+
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="nav navbar-nav">
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Unidad 1
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink1">
+                            <a class="dropdown-item" href="mostrar.html">Primera Tabla</a><br>
+                            <a class="dropdown-item" href="meterdatos.html">Formulario</a><br>
+                            <a class="dropdown-item" href="tablafinal.html">Personajes</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Unidad 2
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
+                            <a class="dropdown-item" href="tarjetas.html">Equipos</a><br>
+                            <a class="dropdown-item" href="relaciones02.html">Relaciones 2</a><br>
+                            <a class="dropdown-item" href="relaciones03.html">Relaciones 3</a>
+                            <a class="dropdown-item" href="capturadatosrelacionados.html">Relaciones de datos</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Unidad 3
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink3">
+                            <a class="dropdown-item" href="valeria.html">Pokédex</a><br>
+                            <a class="dropdown-item" href="peliculas.html">Películas</a><br>
+                            <a class="dropdown-item" href="nasa.html">NASA</a>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<div class="container-tablas">
+    <h1>Base de Datos de Insectos</h1>
+    <h3>Valeria Castillo - Sistema de Información Entomológica</h3>
+
+    <div class="alert-success">Sistema de Información Entomológica - Datos de ejemplo</div>
+
+    <h2>Tabla 1: Países</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Nombre del País</th>
+            <th>Continente</th>
+            <th>Código</th>
+            <th>Fecha Registro</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>México</td>
+            <td>América</td>
+            <td>MX</td>
+            <td>2024-01-15</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Brasil</td>
+            <td>América</td>
+            <td>BR</td>
+            <td>2024-01-15</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>España</td>
+            <td>Europa</td>
+            <td>ES</td>
+            <td>2024-01-16</td>
+        </tr>
+    </table>
+    <p><span class="badge">Total: 3 países</span></p>
+
+    <h2>Tabla 2: Órdenes Científicas</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Nombre del Orden</th>
+            <th>Descripción</th>
+            <th>Fecha Registro</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Lepidoptera</td>
+             .=Mariposas y polillas</td>
+             .=2024-01-10</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Coleoptera</td>
+            <td>Escarabajos</td>
+            <td>2024-01-10</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Hymenoptera</td>
+            <td>Hormigas, abejas y avispas</td>
+            <td>2024-01-11</td>
+        </tr>
+    </table>
+    <p><span class="badge">Total: 3 órdenes</span></p>
+
+    <h2>Tabla 3: Familias</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Nombre Familia</th>
+            <th>Orden Relacionado</th>
+            <th>Descripción</th>
+            <th>Fecha Registro</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Nymphalidae</td>
+            <td>Lepidoptera</td>
+            <td>Mariposas patas de cepillo</td>
+            <td>2024-01-12</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Scarabaeidae</td>
+            <td>Coleoptera</td>
+            <td>Escarabajos peloteros</td>
+            <td>2024-01-12</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Formicidae</td>
+            <td>Hymenoptera</td>
+            <td>Hormigas</td>
+            <td>2024-01-13</td>
+        </tr>
+    </table>
+    <p><span class="badge">Total: 3 familias</span></p>
+
+    <h2>Tabla 4: Hábitats</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Nombre Hábitat</th>
+            <th>Descripción</th>
+            <th>Fecha Registro</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Selva Tropical</td>
+            <td>Alta humedad y biodiversidad</td>
+            <td>2024-01-10</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Bosque Templado</td>
+            <td>Clima moderado, cuatro estaciones</td>
+            <td>2024-01-10</td>
+        </tr>
+        <tr>
+            <td>3</td>
+             .=Desierto</td>
+             .=Clima árido, escasa vegetación</td>
+            <td>2024-01-11</td>
+        </tr>
+    </table>
+    <p><span class="badge">Total: 3 hábitats</span></p>
+
+    <h2>Tabla 5: Alimentación</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Tipo Alimentación</th>
+            <th>Descripción</th>
+            <th>Fecha Registro</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Herbívoro</td>
+            <td>Se alimenta de plantas</td>
+            <td>2024-01-10</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Carnívoro</td>
+            <td>Se alimenta de otros insectos</td>
+            <td>2024-01-10</td>
+        </tr>
+        <tr>
+            <td>3</td>
+             .=Nectarívoro</td>
+            <td>Se alimenta de néctar</td>
+            <td>2024-01-11</td>
+        </tr>
+    </table>
+    <p><span class="badge">Total: 3 tipos de alimentación</span></p>
+
+    <h2>Tabla 6: Insectos (Tabla Principal)</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Nombre Común</th>
+            <th>Nombre Científico</th>
+            <th>País</th>
+            <th>Familia</th>
+            <th>Hábitat</th>
+            <th>Alimentación</th>
+            <th>Tamaño (mm)</th>
+            <th>Color</th>
+            <th>Peligro Extinción</th>
+            <th>Fecha Descubrimiento</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Monarca</td>
+             .=Danaus plexippus</td>
+            <td>México</td>
+            <td>Nymphalidae</td>
+            <td>Bosque Templado</td>
+            <td>Nectarívoro</td>
+            <td>90</td>
+            <td>Naranja y negro</td>
+             .=No</td>
+             .=1780</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Escarabajo Hércules</td>
+             .=Dynastes hercules</td>
+            <td>Brasil</td>
+            <td>Scarabaeidae</td>
+            <td>Selva Tropical</td>
+            <td>Herbívoro</td>
+            <td>170</td>
+            <td>Verde y negro</td>
+             .=Sí</td>
+             .=1758</td>
+        </tr>
+        <tr>
+            <td>3</td>
+             .=Hormiga Roja</td>
+             .=Solenopsis invicta</td>
+            <td>Brasil</td>
+            <td>Formicidae</td>
+            <td>Selva Tropical</td>
+            <td>Carnívoro</td>
+            <td>6</td>
+             .=Rojo</td>
+             .=No</td>
+             .=1916</td>
+        </tr>
+    </table>
+    <p><span class="badge">Total: 3 insectos registrados</span></p>
+
+    <footer>
+        <p>Base de Datos de Insectos | Sistema de Información Entomológica | 7 Tablas Relacionadas</p>
+        <p>Países | Órdenes | Familias | Hábitats | Alimentación | Insectos | Relaciones</p>
+    </footer>
+</div>
+
+</body>
+</html>

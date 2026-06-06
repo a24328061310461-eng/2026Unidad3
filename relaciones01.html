@@ -17,7 +17,7 @@
 
     <style>
         :root{
-            --color-de-fondo: #bacba9;
+            --color-de-fondo: #a55690;
             --color-de-lertras: #e1f4cb;
             --color-barra: #9bae8a;
             --color-boton: #f1bf98;
@@ -26,9 +26,11 @@
 
         body{
             background-color: #8fc093;
-        }
-        h1{
-            font-family: 'Bergell LET', sans-serif;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(135deg, #8fc093 0%, #6a9c6e 100%);
+            color: white;
             text-align: center;
         }
         
@@ -42,9 +44,71 @@
             background-color: #f1bf98;
             color: #1a1a2e;
         }
+
+        h1{
+            margin-top: 30px;
+            font-size: 40px;
+            text-shadow: 2px 2px 5px black;
+            color: #2c3e50;
+        }
+
+        h2{
+            font-size: 22px;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 3px black;
+            color: #2c3e50;
+        }
+
+        .table-container {
+            width: 95%;
+            margin: 20px auto;
+            overflow-x: auto;
+        }
+
+        table{
+            margin: auto;
+            border-collapse: collapse;
+            width: 100%;
+            background-color: rgba(0,0,0,0.85);
+            backdrop-filter: blur(5px);
+            box-shadow: 0px 0px 15px black;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th{
+            background-color: var(--color-barra);
+            padding: 12px;
+            color: white;
+            font-weight: bold;
+        }
+
+        td{
+            padding: 10px;
+            color: #ddd;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        tr:nth-child(even){
+            background-color: rgba(255,255,255,0.05);
+        }
+
+        tr:hover{
+            background-color: rgba(255,255,255,0.15);
+            transition: 0.3s;
+        }
+
+        .badge-count {
+            background-color: var(--color-boton);
+            color: #2c3e50;
+            padding: 8px 16px;
+            border-radius: 20px;
+            display: inline-block;
+            margin: 10px auto;
+            font-weight: bold;
+        }
     </style>
 </head>
-
 <body>
 
 <div>
@@ -95,14 +159,72 @@
     </nav>
 </div>
 
-<div class="jumbotron" style="background-color: var(--color-de-fondo)">
-    <h1 class="display-4">Bienvenido</h1>
-    <p class="lead">Esta será mi página.</p>
-    <hr class="my-4">
-    <p>Bienvenido a mi página</p>
-    <p class="lead">
-        <a class="btn btn-primary btn-lg" href="#" role="button">Botón</a>
-    </p>
+<div class="table-container">
+    <h1>Personajes de Marvel</h1>
+    <h2>Personajes y sus Relaciones</h2>
+
+    <div style="text-align: center;"><span class="badge-count">Total: 5 personajes</span></div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Alias</th>
+                <th>Fecha de Creación</th>
+                <th>Descripción</th>
+                <th>Titulo de Comic</th>
+                <th>Nombre del Superpoder</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Tony Stark</td>
+                <td>Iron Man</td>
+                <td>1963-03-01</td>
+                <td>Genio inventor y filántropo</td>
+                <td>Tales of Suspense #39</td>
+                <td>Armadura tecnológica</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Peter Parker</td>
+                <td>Spider-Man</td>
+                <td>1962-08-01</td>
+                <td>Estudiante con habilidades arácnidas</td>
+                <td>Amazing Fantasy #15</td>
+                <td>Sentido arácnido, trepa muros</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Steve Rogers</td>
+                <td>Capitán América</td>
+                <td>1941-03-01</td>
+                <td>Super soldado estadounidense</td>
+                <td>Captain America Comics #1</td>
+                <td>Fuerza y agilidad sobrehumanas</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Bruce Banner</td>
+                <td>Hulk</td>
+                <td>1962-05-01</td>
+                <td>Científico que se transforma en monstruo verde</td>
+                <td>The Incredible Hulk #1</td>
+                <td>Fuerza infinita, regeneración</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Thor Odinson</td>
+                <td>Thor</td>
+                <td>1962-08-01</td>
+                <td>Dios nórdico del trueno</td>
+                <td>Journey into Mystery #83</td>
+                <td>Control del trueno, fuerza divina</td>
+            </tr>
+        </tbody>
+    </table>
 </div>
 
 </body>

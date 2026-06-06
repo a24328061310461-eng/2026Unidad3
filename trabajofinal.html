@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Valeria Castillo de la Paz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.cdnfonts.com/css/lifestyle-marker-m54" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/kun" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/sa-inkspot" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+    <style>
+        :root {
+            --color-de-fondo: #bacba9;
+            --color-de-letras: #e1f4cb;
+            --color-barra: #717568;
+            --color-boton: #f1bf98;
+            --color-extra: #3f4739;
+        }
+
+        body{
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(135deg, #8fc093 0%, #6a9c6e 100%);
+            color: white;
+            text-align: center;
+        }
+
+        h1{
+            margin-top: 30px;
+            font-size: 40px;
+            text-shadow: 2px 2px 5px black;
+            color: var(--color-extra);
+        }
+
+        .table-container {
+            width: 95%;
+            margin: 20px auto;
+            overflow-x: auto;
+        }
+
+        table{
+            margin: auto;
+            border-collapse: collapse;
+            width: 100%;
+            background-color: rgba(0,0,0,0.85);
+            backdrop-filter: blur(5px);
+            box-shadow: 0px 0px 15px black;
+        }
+
+        th{
+            background-color: var(--color-barra);
+            padding: 12px;
+            color: white;
+        }
+
+        td{
+            padding: 10px;
+            color: #ddd;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        tr:nth-child(even){
+            background-color: rgba(255,255,255,0.05);
+        }
+
+        tr:hover{
+            background-color: rgba(255,255,255,0.15);
+            transition: 0.3s;
+        }
+
+        .badge-count {
+            background-color: var(--color-boton);
+            color: var(--color-extra);
+            padding: 8px 16px;
+            border-radius: 20px;
+            display: inline-block;
+            margin: 10px auto;
+            font-weight: bold;
+        }
+
+        .dropdown-menu a {
+            color: #333;
+            text-decoration: none;
+            display: block;
+            padding: 8px 16px;
+        }
+        .dropdown-menu a:hover {
+            background-color: #f1bf98;
+            color: #1a1a2e;
+        }
+    </style>
+</head>
+<body>
+
+<div>
+    <nav class="navbar navbar-light" style="background-color:var(--color-barra);">
+        <div class="container">
+            <a class="navbar-brand" href="index.html" style="color:var(--color-de-letras); font-family: 'Times New Roman', Times, serif">Inicio</a>
+
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="nav navbar-nav">
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Unidad 1
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink1">
+                            <a class="dropdown-item" href="mostrar.html">Primera Tabla</a><br>
+                            <a class="dropdown-item" href="meterdatos.html">Formulario</a><br>
+                            <a class="dropdown-item" href="tablafinal.html">Personajes</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Unidad 2
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
+                            <a class="dropdown-item" href="tarjetas.html">Equipos</a><br>
+                            <a class="dropdown-item" href="relaciones02.html">Relaciones 2</a><br>
+                            <a class="dropdown-item" href="relaciones03.html">Relaciones 3</a>
+                            <a class="dropdown-item" href="capturadatosrelacionados.html">Relaciones de datos</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Unidad 3
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink3">
+                            <a class="dropdown-item" href="valeria.html">Pokédex</a><br>
+                            <a class="dropdown-item" href="peliculas.html">Películas</a><br>
+                            <a class="dropdown-item" href="nasa.html">NASA</a>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<div class="table-container">
+    <h1>Tabla de Personajes</h1>
+
+    <div style="text-align: center;"><span class="badge-count">Total: 5 personajes</span></div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre Real</th>
+                <th>Personaje</th>
+                <th>Altura</th>
+                <th>Peso</th>
+                <th>Poderes</th>
+                <th>Sexo</th>
+                <th>Debilidad</th>
+                <th>Creacion</th>
+                <th>Biografia</th>
+                <th>Imagen</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Tony Stark</td>
+                <td>Iron Man</td>
+                <td>1.85 m</td>
+                <td>85 kg</td>
+                <td>Inteligencia sobrehumana</td>
+                <td>Masculino</td>
+                <td>Sin armadura</td>
+                <td>1963</td>
+                <td>Genio inventor y filántropo</td>
+                <td>Sin imagen</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Bruce Wayne</td>
+                <td>Batman</td>
+                <td>1.88 m</td>
+                <td>95 kg</td>
+                <td>Artes marciales</td>
+                <td>Masculino</td>
+                <td>Familia</td>
+                <td>1939</td>
+                <td>Millonario que lucha contra el crimen</td>
+                <td>Sin imagen</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Diana Prince</td>
+                <td>Wonder Woman</td>
+                <td>1.83 m</td>
+                <td>75 kg</td>
+                <td>Fuerza sobrehumana</td>
+                <td>Femenino</td>
+                <td>Atada por un hombre</td>
+                <td>1941</td>
+                <td>Princesa amazona guerrera</td>
+                <td>Sin imagen</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Peter Parker</td>
+                <td>Spider-Man</td>
+                <td>1.78 m</td>
+                <td>74 kg</td>
+                 .=Trepa muros</td>
+                <td>Masculino</td>
+                <td>Responsabilidad</td>
+                <td>1962</td>
+                <td>Estudiante con habilidades arácnidas</td>
+                <td>Sin imagen</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Steve Rogers</td>
+                <td>Capitán América</td>
+                <td>1.88 m</td>
+                <td>100 kg</td>
+                 .=Fuerza maxima humana</td>
+                <td>Masculino</td>
+                <td>Sin escudo</td>
+                <td>1941</td>
+                <td>Super soldado de la justicia</td>
+                <td>Sin imagen</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

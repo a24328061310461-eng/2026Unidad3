@@ -24,12 +24,10 @@
             --color-extra: #3f4739;
         }
 
-        body{
-            background-color: #8fc093;
-        }
-        h1{
-            font-family: 'Bergell LET', sans-serif;
-            text-align: center;
+        body {
+            background: linear-gradient(135deg, #8fc093 0%, #6a9c6e 100%);
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
         }
         
         .dropdown-menu a {
@@ -41,6 +39,98 @@
         .dropdown-menu a:hover {
             background-color: #f1bf98;
             color: #1a1a2e;
+        }
+
+        .cards-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .x-card {
+            background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+            border-radius: 15px;
+            width: 280px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            transition: transform 0.3s;
+        }
+
+        .x-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-header {
+            background: var(--color-barra);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .card-img-container {
+            height: 200px;
+            background: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 15px;
+            color: #ddd;
+        }
+
+        .stat-label {
+            font-weight: bold;
+            color: var(--color-boton);
+            display: inline-block;
+            width: 80px;
+        }
+
+        .small {
+            font-size: 12px;
+            line-height: 1.4;
+        }
+
+        hr {
+            border-color: #444;
+        }
+
+        .no-mutantes {
+            text-align: center;
+            padding: 50px;
+            color: white;
+            font-size: 18px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-top: 30px;
+        }
+
+        .nav-links {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            background: var(--color-boton);
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -95,14 +185,17 @@
     </nav>
 </div>
 
-<div class="jumbotron" style="background-color: var(--color-de-fondo)">
-    <h1 class="display-4">Bienvenido</h1>
-    <p class="lead">Esta será mi página.</p>
-    <hr class="my-4">
-    <p>Bienvenido a mi página</p>
-    <p class="lead">
-        <a class="btn btn-primary btn-lg" href="#" role="button">Botón</a>
-    </p>
+<div style="padding: 20px; text-align: center;">
+    <h1>Archivo Mutante: Colección 1990s</h1>
+    <div class="nav-links">
+        <a href="xmen.html" class="btn">Nuevo Mutante</a>
+    </div>
+</div>
+
+<div class="cards-grid">
+    <div class="no-mutantes">
+        No hay mutantes registrados aún
+    </div>
 </div>
 
 </body>
